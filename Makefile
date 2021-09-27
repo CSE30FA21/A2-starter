@@ -13,14 +13,14 @@ EXE = checksum
 OBJS = checksum.o
 .PHONY: clean
 
-$(EXE) : $(OBJS)
+$(EXE): $(OBJS)
 	gcc -Wall -Wextra -o $@ $(OBJS)
 
-no_warnings : $(OBJS)
+no_warnings: $(OBJS)
 	gcc -o $(EXE) $(OBJS)
 
-checksum.o : checksum.c
-	gcc -Wall -Wextra -g -c -o $(OBJS) checksum.c
+checksum.o: checksum.c
+	gcc -std=c17 -Wall -Wextra -O0 -g -c -o $(OBJS) checksum.c
 
-clean :
+clean:
 	rm -f $(EXE) $(OBJS)
