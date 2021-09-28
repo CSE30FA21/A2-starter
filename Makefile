@@ -24,5 +24,5 @@ LIBS =
 $(EXE) : $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
 
-clean :
+clean:
 	rm -f $(EXE) $(OBJS)
