@@ -6,21 +6,23 @@
 # We provide a phony target clean to rm all the .o files
 # 
 # Run make to run with warnings
-# Run make no_warnings to run without warnings
+# Run make WARN= to run without warnings
+# Run make DEBUG= to run without debug
+# Run make DEBUG= WARN= to run without debug and warnings
 # Run make clean to clean objects
 
 EXE = checksum
 OBJS = checksum.o
+CC = gcc
+DEBUG = -g
+WARN = -Wall -Wextra
+CFLAGS = -I. -std=c11 $(DEBUG) $(WARN)
+LIBS = 
+
 .PHONY: clean
 
 $(EXE) : $(OBJS)
-	gcc -Wall -Wextra -o $@ $(OBJS)
-
-no_warnings : $(OBJS)
-	gcc -o $(EXE) $(OBJS)
-
-checksum.o : checksum.c
-	gcc -Wall -Wextra -g -c -o $(OBJS) checksum.c
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
 
 clean :
 	rm -f $(EXE) $(OBJS)
