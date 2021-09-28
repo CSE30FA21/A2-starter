@@ -20,7 +20,7 @@ no_warnings: $(OBJS)
 	gcc -o $(EXE) $(OBJS)
 
 checksum.o: checksum.c
-	gcc -std=c17 -Wall -Wextra -O0 -g -c -o $(OBJS) checksum.c
+	gcc -std=c11 -Wall -Wextra -O0 -g -c -o $(OBJS) checksum.c
 
 clean:
 	rm -f $(EXE) $(OBJS)
