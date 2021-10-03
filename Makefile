@@ -11,8 +11,8 @@
 # Run make DEBUG= WARN= to run without debug and warnings
 # Run make clean to clean objects
 
-EXE = checksum
-OBJS = checksum.o
+EXE = cnvtr
+OBJS = converter.o
 CC = gcc
 DEBUG = -g
 WARN = -Wall -Wextra
